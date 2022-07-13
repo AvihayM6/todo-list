@@ -1,0 +1,11 @@
+.main-panel-container{
+    width: 40%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.todos-list{
+    margin-left: 100px;
+    margin-top: 100px;
+}
