@@ -14,19 +14,23 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
-function createData(name, deleteIcon, checkIcon) {
+
+
+function createData(name) {
+    const deleteIcon = <IconButton><DeleteOutlineIcon /></IconButton>
+    const checkIcon = <Checkbox />
     return { name, deleteIcon, checkIcon };
 }
 
 const rows = [
-    createData('Lorem ipsum dolor sit amet.', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Ice cream sandwich', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Eclair', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Cupcake', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Gingerbread', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Eclair', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Cupcake', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
-    createData('Gingerbread', <IconButton><DeleteOutlineIcon /></IconButton>, <Checkbox />),
+    createData('Lorem ipsum dolor sit amet.',),
+    createData('Ice cream sandwich'),
+    createData('Eclair'),
+    createData('Cupcake'),
+    createData('Gingerbread'),
+    createData('Eclair'),
+    createData('Cupcake'),
+    createData('Gingerbread'),
 ];
 
 const MyTextField = styled(TextField)({
@@ -46,7 +50,7 @@ const MainPanel = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell width="10%"><b>Tasks</b></TableCell>
-                            <TableCell width="1%" align="center"><b>Delete/Check</b></TableCell>
+                            <TableCell width="1%" align="center"><b>Delete/Finish</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody >
@@ -56,7 +60,14 @@ const MainPanel = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">{row.name}</TableCell>
-                                <TableCell align="center">{row.deleteIcon}{row.checkIcon}</TableCell>
+                                <TableCell align="center">
+                                    <div className='icons-container'>
+                                        <div className='delete-icon'>
+                                            {row.deleteIcon}
+                                        </div>
+                                        {row.checkIcon}
+                                    </div>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

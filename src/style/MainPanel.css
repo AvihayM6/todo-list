@@ -9,3 +9,12 @@
     margin-left: 100px;
     margin-top: 100px;
 }
+
+
+.delete-icon{
+    border-right: 1px solid #0109;
+}
+
+.icons-container{
+    display: flex;
+}
