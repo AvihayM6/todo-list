@@ -55,7 +55,7 @@ const MainPanel = () => {
     const items = useSelector(state => state.itemSlice) //function to read the state of Redux
 
     useEffect(() => {
-        //console.log(dispatch(printState()));
+        dispatch(printState());
     })
     return (
         <div className='main-panel-container'>
