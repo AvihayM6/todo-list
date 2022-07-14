@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import '../style/MainPanel.css'
-import { styled } from '@mui/system';
+import SearchIcon from '@mui/icons-material/Search';
 import { IconButton, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -46,24 +46,22 @@ const rows = [
 
 ];
 
-const MyTextField = styled(TextField)({
-    marginLeft: "33%"
-})
-
 const MainPanel = () => {
     const dispatch = useDispatch() //function to read the reduce of Redux
-    const { items } = useSelector(state => state.itemSlice) //function to read the state of Redux
+    const items = useSelector(state => state.itemSlice) //function to read the state of Redux
 
     useEffect(() => {
-        dispatch(printState());
+        console.log(items);
     })
     return (
         <div className='main-panel-container'>
-            <MyTextField
-                id="standard-name"
-                label="Add todo"
-                InputProps={{ endAdornment: <IconButton><AddIcon /></IconButton> }}
-            />
+            <div className='text-field'>
+                <TextField
+                    id="standard-name"
+                    label="Search task"
+                    InputProps={{ endAdornment: <IconButton><SearchIcon /></IconButton> }}
+                />
+            </div>
             <TableContainer className="custom-scrollbar" component={Paper} sx={{ display: "flex", justifyContent: "center", boxShadow: "none", height: "65%", background: "none" }}>
                 <Table aria-label="simple table" sx={{ maxWidth: "90%" }}>
                     <TableHead>

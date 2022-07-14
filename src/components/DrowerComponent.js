@@ -12,6 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
+import InfoIcon from '@mui/icons-material/Info';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -42,7 +43,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const DrowerComponent = ({ open, setOpen, theme }) => {
-    return ( 
+    return (
         <div>
             <Drawer
                 sx={{
@@ -64,11 +65,11 @@ const DrowerComponent = ({ open, setOpen, theme }) => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['Add', 'Search'].map((text, index) => (
+                    {['Add', 'About'].map((text, index) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? <AddIcon /> : <SearchIcon />}
+                                    {index % 2 === 0 ? <AddIcon /> : <InfoIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItemButton>
@@ -76,11 +77,11 @@ const DrowerComponent = ({ open, setOpen, theme }) => {
                     ))}
                 </List>
             </Drawer>
-            <Main open={open} sx={{padding:'0px'}}>
+            <Main open={open} sx={{ padding: '0px' }}>
                 <DrawerHeader />
             </Main>
         </div>
-     );
+    );
 }
- 
+
 export default DrowerComponent;

@@ -37,3 +37,9 @@
     background: rgba(70, 73, 73, 0.6);
     border-radius: 12px;
   }
+
+  .text-field{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }

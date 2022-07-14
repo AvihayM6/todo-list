@@ -1,20 +1,21 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
-import { 
-  IconButton, 
+import {
+  IconButton,
   Checkbox,
- } from '@mui/material';
+} from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { current } from "@reduxjs/toolkit";
 
 
 
 const initialState = {
-  data : [
-    {id:1, task:'aaaaaaaaaaaa', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox />},
-    {id:2, task:'bbbbbbbbbbbb', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox />},
-    {id:3, task:'cccccccccccc', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox />},
-    {id:4, task:'dddddddddddd', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox />},
-    {id:5, task:'eeeeeeeeeeee', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox />},
+  data: [
+    { id: 1, task: 'aaaaaaaaaaaa', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox /> },
+    { id: 2, task: 'bbbbbbbbbbbb', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox /> },
+    { id: 3, task: 'cccccccccccc', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox /> },
+    { id: 4, task: 'dddddddddddd', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox /> },
+    { id: 5, task: 'eeeeeeeeeeee', deleteIcon: <IconButton><DeleteOutlineIcon /></IconButton>, checkIcon: <Checkbox /> },
   ],
   search: '',
 }
@@ -25,17 +26,14 @@ const itemsSlice = createSlice({
   reducers: {
 
     deleteItem: (state, { payload }) => {
-      console.log(payload)
       state.data = state.data.filter((item) => item.id !== payload)
     },
 
-    setSelectedItemId: ( state, { payload } ) => {
-      console.log(payload)
+    setSelectedItemId: (state, { payload }) => {
       state.selectedProductId = payload
     },
 
     saveItem: (state, { payload }) => {
-      console.log(payload)
       if (!payload.id) {
         payload.id = uuid()
         state.data.push(payload)
@@ -48,12 +46,12 @@ const itemsSlice = createSlice({
     },
 
     updateSearchTerm: (state, { payload }) => {
-      console.log(payload)
       state.search = payload
     },
 
-    printState: (state) =>{
-      console.log(state.data.map(item => console.log(item)))
+    printState: (state) => {
+      //console.log(state.data.map(item => console.log(item)))
+      console.log(current(state))
     }
   },
 })
