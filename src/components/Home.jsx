@@ -6,6 +6,7 @@ const Home = () => {
     return (
         <div className="home-style">
             <Topbar />
+            <h1>Todo App</h1>
             <div className="flex-main-panel">
                 <MainPanel />
             </div>

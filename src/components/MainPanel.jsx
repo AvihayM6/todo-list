@@ -45,15 +45,15 @@ const MainPanel = () => {
                 label="Add todo"
                 InputProps={{ endAdornment: <IconButton><AddIcon /></IconButton> }}
             />
-            <TableContainer component={Paper} sx={{ display: "flex", justifyContent: "center", boxShadow: "none" }}>
-                <Table aria-label="simple table" sx={{ maxWidth: "80%" }}>
+            <TableContainer className="custom-scrollbar" component={Paper} sx={{ display: "flex", justifyContent: "center", boxShadow: "none", height: "65%", background: "none" }}>
+                <Table aria-label="simple table" sx={{ maxWidth: "90%" }}>
                     <TableHead>
                         <TableRow>
                             <TableCell width="10%"><b>Tasks</b></TableCell>
                             <TableCell width="1%" align="center"><b>Delete/Finish</b></TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody >
+                    <TableBody>
                         {rows.map((row) => (
                             <TableRow
                                 key={row.name}

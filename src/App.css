@@ -6,6 +6,9 @@
 }
 body, html{
     margin: 0px;
+    overflow: hidden;
+    display: block;
+    background-color: aliceblue;
 
 }
 
