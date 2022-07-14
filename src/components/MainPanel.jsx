@@ -12,6 +12,18 @@ import { styled } from '@mui/system';
 import { IconButton, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux'
+import {
+    deleteItem,
+    setSelectedItemId,
+    saveItem,
+    updateSearchTerm,
+    printState
+} from '../Redux/listSlice'
+import { useEffect } from 'react';
 
 
 
@@ -28,9 +40,10 @@ const rows = [
     createData('Eclair'),
     createData('Cupcake'),
     createData('Gingerbread'),
-    createData('Eclair'),
-    createData('Cupcake'),
-    createData('Gingerbread'),
+    createData('asdasd'),
+    createData('Cupcasdddake'),
+    createData('Gingeaaaarbread'),
+
 ];
 
 const MyTextField = styled(TextField)({
@@ -38,6 +51,12 @@ const MyTextField = styled(TextField)({
 })
 
 const MainPanel = () => {
+    const dispatch = useDispatch() //function to read the reduce of Redux
+    const items = useSelector(state => state.itemSlice) //function to read the state of Redux
+
+    useEffect(() => {
+        //console.log(dispatch(printState()));
+    })
     return (
         <div className='main-panel-container'>
             <MyTextField

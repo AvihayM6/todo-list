@@ -1,5 +1,10 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
+import { 
+  IconButton, 
+  Checkbox,
+ } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 
@@ -14,21 +19,21 @@ const initialState = {
   search: '',
 }
 
-export const itemsSlice = createSlice({
+const itemsSlice = createSlice({
   name: 'items',
   initialState,
   reducers: {
+
     deleteItem: (state, { payload }) => {
       console.log(payload)
       state.data = state.data.filter((item) => item.id !== payload)
     },
-    setSelectedItemId: (
-      state,
-      { payload }
-    ) => {
+
+    setSelectedItemId: ( state, { payload } ) => {
       console.log(payload)
       state.selectedProductId = payload
     },
+
     saveItem: (state, { payload }) => {
       console.log(payload)
       if (!payload.id) {
@@ -36,20 +41,34 @@ export const itemsSlice = createSlice({
         state.data.push(payload)
         return state
       }
-
       const itemIndex = state.data.findIndex(
         (item) => item.id === payload.id
       )
       state.data[itemIndex] = payload
     },
+
     updateSearchTerm: (state, { payload }) => {
       console.log(payload)
       state.search = payload
     },
+
+    printState: (state) =>{
+      console.log(state)
+    }
   },
 })
 
 export const {
+  deleteItem,
+  setSelectedItemId,
+  saveItem,
+  updateSearchTerm,
+  printState
+} = itemsSlice.actions
+
+export default itemsSlice.reducer;
+
+/*export const {
   deleteItem,
   setSelectedItemId,
   saveItem,
@@ -73,9 +92,9 @@ export const selectSearchTerm = (state) => state.items.search
 export const selectFilteredItems = createSelector(
   selectItems,
   selectSearchTerm,
-  (itemss, searchTerm) => {
+  (items, searchTerm) => {
     return items.filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }
-)
+)*/
