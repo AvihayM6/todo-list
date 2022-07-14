@@ -52,7 +52,7 @@ const MyTextField = styled(TextField)({
 
 const MainPanel = () => {
     const dispatch = useDispatch() //function to read the reduce of Redux
-    const items = useSelector(state => state.itemSlice) //function to read the state of Redux
+    const { items } = useSelector(state => state.itemSlice) //function to read the state of Redux
 
     useEffect(() => {
         dispatch(printState());

@@ -53,7 +53,7 @@ const itemsSlice = createSlice({
     },
 
     printState: (state) =>{
-      console.log(state)
+      console.log(state.data.map(item => console.log(item)))
     }
   },
 })
